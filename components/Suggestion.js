@@ -19,6 +19,15 @@ export default function Suggestion({
     }
     this.render = () => {
         // items = [] --> default 설정
+        // this.state에 items가 현재 없음! --> 없으면 [빈배열]을 넣어주고, 있다면 state에 items를 넣어준다!!!
+        // 이거는 App.js 에서 
+        // suggestion.setState({
+        //     selectedIndex: 0,   //초기값0도 같이 넘겨줌
+        //     items: this.state.fetchedLanguages
+        // }) 에서 setState로 관리되고 있다.
+        // items는 this.state.fetchedLanguages 이 값을 넣어주고!! (state는 setState로 값을 변경할 수 있음)
+        //        ((fetchedLanguages : [], 여기에 넣어준다는 의미임!))
+        //✔App.js에서 다 관리하는거임! react의 props라고 생각하자!
         const { items = [], selectedIndex } = this.state;   // selectedIndex의 초기값은 현재 0
         if( items.length > 0) {     //items의 길이가 0보다 크다 -> '값이 있다' 의미
             this.$element.style.display = 'block';
